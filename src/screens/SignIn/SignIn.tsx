@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
-import { ArrowLeft, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff, Fingerprint, QrCode, Mail } from "lucide-react";
 
 export const SignIn = ({ 
   onBack, 
@@ -48,7 +48,7 @@ export const SignIn = ({
           </h1>
 
           <p className="w-full [font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm tracking-[0] leading-6">
-            Access your secure account with your credentials.
+            Authenticate using your registered credentials.
           </p>
         </header>
 
@@ -76,7 +76,7 @@ export const SignIn = ({
                 onClick={onForgotPassword}
                 className="[font-family:'Tinos',Helvetica] font-normal text-[#6b6b6b] text-xs hover:text-white transition-colors"
               >
-                Forgot password?
+                Reset Password
               </button>
             </div>
             <div className="relative">
@@ -102,14 +102,14 @@ export const SignIn = ({
             disabled={loading}
             className="w-full h-12 bg-white rounded-[14px] [font-family:'Tinos',Helvetica] font-normal text-black text-sm tracking-[0] leading-5 hover:bg-white/90 disabled:opacity-50"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? "Authenticating..." : "Authenticate"}
           </Button>
         </form>
 
         <div className="w-full flex items-center gap-3 mb-6">
           <div className="flex-1 h-px bg-[#00000033]" />
           <span className="[font-family:'Tinos',Helvetica] font-normal text-[#6b6b6b] text-xs">
-            Or continue with
+            Alternative Authentication Methods
           </span>
           <div className="flex-1 h-px bg-[#00000033]" />
         </div>
@@ -120,7 +120,7 @@ export const SignIn = ({
             className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033] cursor-pointer hover:bg-[#252525] transition-colors"
           >
             <CardContent className="flex flex-col items-center gap-2 px-0 py-4">
-              <span className="text-2xl">🔐</span>
+              <Fingerprint size={24} className="text-[#dcdcdcba]" />
               <span className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-xs text-center tracking-[0] leading-4">
                 Biometric
               </span>
@@ -131,7 +131,7 @@ export const SignIn = ({
             className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033] cursor-pointer hover:bg-[#252525] transition-colors"
           >
             <CardContent className="flex flex-col items-center gap-2 px-0 py-4">
-              <span className="text-2xl">📱</span>
+              <QrCode size={24} className="text-[#dcdcdcba]" />
               <span className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-xs text-center tracking-[0] leading-4">
                 QR Code
               </span>
@@ -142,9 +142,9 @@ export const SignIn = ({
             className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033] cursor-pointer hover:bg-[#252525] transition-colors"
           >
             <CardContent className="flex flex-col items-center gap-2 px-0 py-4">
-              <span className="text-2xl">✨</span>
+              <Mail size={24} className="text-[#dcdcdcba]" />
               <span className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-xs text-center tracking-[0] leading-4">
-                Magic Link
+                Passwordless
               </span>
             </CardContent>
           </Card>

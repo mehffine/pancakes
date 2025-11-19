@@ -23,25 +23,25 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   const securitySettings: SecuritySetting[] = [
     {
       icon: <Lock size={20} />,
-      label: "Password",
-      status: "Strong",
+      label: "Password Policy",
+      status: "Compliant",
       statusColor: "text-green-400",
     },
     {
       icon: <Smartphone size={20} />,
-      label: "Biometric Auth",
-      status: "Enabled",
+      label: "Biometric Authentication",
+      status: "Active",
       statusColor: "text-green-400",
     },
     {
       icon: <Clock size={20} />,
-      label: "Session Timeout",
-      status: "30 min",
+      label: "Session Duration",
+      status: "30 minutes",
       statusColor: "text-blue-400",
     },
     {
       icon: <Globe size={20} />,
-      label: "Device",
+      label: "Device Verification",
       status: "Verified",
       statusColor: "text-green-400",
     },
@@ -50,32 +50,32 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   const recentActivity = [
     { 
       time: "2 hours ago", 
-      action: "Successful login", 
-      device: "Chrome on Windows",
-      location: "San Francisco, CA",
+      action: "Authentication Successful", 
+      device: "Chrome Browser - Windows",
+      location: "San Francisco, CA, US",
       status: "success",
       icon: <CheckCircle2 size={16} className="text-green-400" />
     },
     {
       time: "1 day ago",
-      action: "Password changed",
-      device: "Safari on macOS",
-      location: "New York, NY",
+      action: "Password Credentials Updated",
+      device: "Safari Browser - macOS",
+      location: "New York, NY, US",
       status: "success",
       icon: <Key size={16} className="text-blue-400" />
     },
     {
       time: "3 days ago",
-      action: "2FA enabled",
-      device: "Mobile App",
-      location: "Los Angeles, CA",
+      action: "Multi-Factor Authentication Enabled",
+      device: "Mobile Application",
+      location: "Los Angeles, CA, US",
       status: "success",
       icon: <Shield size={16} className="text-purple-400" />
     },
     {
       time: "5 days ago",
-      action: "Failed login attempt",
-      device: "Unknown Device",
+      action: "Authentication Failure Detected",
+      device: "Unrecognized Device",
       location: "Unknown Location",
       status: "failed",
       icon: <AlertCircle size={16} className="text-red-400" />
@@ -85,24 +85,24 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   const trustedDevices = [
     {
       name: "MacBook Pro",
-      device: "Safari on macOS",
-      location: "San Francisco, CA",
-      lastActive: "Active now",
+      device: "Safari Browser - macOS",
+      location: "San Francisco, CA, US",
+      lastActive: "Currently Active",
       isCurrent: true,
       icon: <Monitor size={20} />
     },
     {
       name: "iPhone 14",
-      device: "Mobile App",
-      location: "San Francisco, CA",
+      device: "Mobile Application",
+      location: "San Francisco, CA, US",
       lastActive: "2 hours ago",
       isCurrent: false,
       icon: <Smartphone size={20} />
     },
     {
       name: "Windows PC",
-      device: "Chrome on Windows",
-      location: "New York, NY",
+      device: "Chrome Browser - Windows",
+      location: "New York, NY, US",
       lastActive: "1 day ago",
       isCurrent: false,
       icon: <Monitor size={20} />
@@ -110,8 +110,8 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   ];
 
   const securityMetrics = [
-    { label: "Login Attempts", value: "24", trend: "+12%", positive: true },
-    { label: "Security Score", value: "95%", trend: "+5%", positive: true },
+    { label: "Authentication Attempts", value: "24", trend: "+12%", positive: true },
+    { label: "Security Compliance Score", value: "95%", trend: "+5%", positive: true },
     { label: "Active Sessions", value: "3", trend: "Stable", positive: true },
   ];
 
@@ -126,10 +126,10 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
             </div>
             <div>
               <h1 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-2xl tracking-[0] leading-8">
-                Welcome back, User
+                Account Dashboard
               </h1>
               <p className="[font-family:'Roboto',Helvetica] text-sm text-[#6b6b6b]">
-                Last login: 2 hours ago
+                Last authenticated: 2 hours ago
               </p>
             </div>
           </div>
@@ -170,11 +170,11 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
         <div className="grid grid-cols-2 gap-6 mb-8">
           {/* Left Column */}
           <div className="flex flex-col gap-6">
-            {/* Quick Security Status */}
+            {/* Security Overview */}
             <div>
               <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg mb-4 flex items-center gap-2">
                 <Shield size={20} className="text-[#dcdcdcba]" />
-                Quick Security Status
+                Security Overview
               </h2>
               <div className="grid grid-cols-2 gap-3">
                 {securitySettings.map((setting, idx) => (
@@ -207,9 +207,9 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                 </h2>
                 <button
                   onClick={() => setShowAllDevices(!showAllDevices)}
-                  className="[font-family:'Roboto',Helvetica] text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                  className="[font-family:'Roboto',Helvetica] text-xs text-blue-400 hover:text-blue-300 transition-colors font-medium"
                 >
-                  {showAllDevices ? "Show Less" : "View All"}
+                  {showAllDevices ? "Show Less" : "View All Devices"}
                 </button>
               </div>
               <div className="flex flex-col gap-3">
@@ -234,8 +234,8 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                           </div>
                         </div>
                         {device.isCurrent && (
-                          <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded">
-                            Current
+                          <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded font-medium">
+                            Active Session
                           </span>
                         )}
                       </div>
@@ -301,34 +301,6 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
           </div>
         </div>
 
-        <div className="w-full max-w-[448px] mb-8">
-          <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg mb-4">
-            Recent Activity
-          </h2>
-
-          <div className="flex flex-col gap-3 max-h-64 overflow-y-auto">
-            {recentActivity.map((activity, idx) => (
-              <Card
-                key={idx}
-                className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]"
-              >
-                <CardContent className="flex items-start justify-between p-4">
-                  <div className="flex-1">
-                    <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm mb-1">
-                      {activity.action}
-                    </p>
-                    <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      {activity.device}
-                    </p>
-                  </div>
-                  <span className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] whitespace-nowrap ml-4">
-                    {activity.time}
-                  </span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         {/* Security Settings */}
         <div className="mb-8">
@@ -348,7 +320,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                       Two-Factor Authentication
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Extra security layer for your account
+                      Additional authentication factor required
                     </p>
                   </div>
                 </div>
@@ -372,7 +344,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                       Biometric Login
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Fingerprint, Face ID, Voice recognition
+                      Biometric identification methods enabled
                     </p>
                   </div>
                 </div>
@@ -396,7 +368,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                       Passwordless Login
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Magic link authentication via email
+                      Email-based passwordless authentication
                     </p>
                   </div>
                 </div>
@@ -420,7 +392,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                       QR Code Login
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Quick scan authentication
+                      QR code-based authentication protocol
                     </p>
                   </div>
                 </div>
@@ -456,7 +428,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                 <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style={{ width: "95%" }} />
               </div>
               <p className="[font-family:'Roboto',Helvetica] text-xs text-blue-300 mt-3">
-                Your account is well-protected. Keep using strong security practices.
+                Account security compliance meets enterprise standards.
               </p>
             </CardContent>
           </Card>
@@ -477,7 +449,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                 </div>
               </div>
               <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                Recent security notifications and updates
+                Pending security notifications requiring attention
               </p>
             </CardContent>
           </Card>
@@ -487,7 +459,7 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
         <div className="flex flex-col gap-3">
           <Button className="w-full h-12 bg-white rounded-[14px] [font-family:'Tinos',Helvetica] font-normal text-black text-sm tracking-[0] leading-5 hover:bg-white/90 flex items-center justify-center gap-2">
             <Settings size={18} />
-            Manage All Security Settings
+            Configure Security Settings
           </Button>
         </div>
       </div>

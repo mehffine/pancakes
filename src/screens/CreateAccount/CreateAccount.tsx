@@ -64,11 +64,11 @@ export const CreateAccount = ({ onBack }: { onBack: () => void }): JSX.Element =
 
         <header className="w-full flex flex-col gap-3 mb-8">
           <h1 className="w-full [font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-2xl tracking-[0] leading-9">
-            Create Account
+            Account Registration
           </h1>
 
           <p className="w-full [font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm tracking-[0] leading-6">
-            Join AuthenSec and secure your digital life.
+            Create your secure account with enterprise-grade authentication.
           </p>
         </header>
 
@@ -116,8 +116,8 @@ export const CreateAccount = ({ onBack }: { onBack: () => void }): JSX.Element =
             {formData.password && (
               <div className="mt-2">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="[font-family:'Roboto',Helvetica] text-xs text-[#dcdcdcba]">
-                    Password Strength
+                  <span className="[font-family:'Roboto',Helvetica] text-xs text-[#dcdcdcba] font-medium">
+                    Password Strength Indicator
                   </span>
                   <span className={`[font-family:'Roboto',Helvetica] text-xs font-medium ${strengthInfo.color.replace('bg-', 'text-')}`}>
                     {strengthInfo.label}
@@ -172,14 +172,14 @@ export const CreateAccount = ({ onBack }: { onBack: () => void }): JSX.Element =
             disabled={loading}
             className="w-full h-12 bg-white rounded-[14px] [font-family:'Tinos',Helvetica] font-normal text-black text-sm tracking-[0] leading-5 hover:bg-white/90 disabled:opacity-50"
           >
-            {loading ? "Creating account..." : "Create Account"}
+            {loading ? "Registering Account..." : "Register Account"}
           </Button>
         </form>
 
         <div className="w-full flex items-center gap-3 mb-6">
           <div className="flex-1 h-px bg-[#00000033]" />
           <span className="[font-family:'Tinos',Helvetica] font-normal text-[#6b6b6b] text-xs">
-            Or sign up with
+            Register via Social Provider
           </span>
           <div className="flex-1 h-px bg-[#00000033]" />
         </div>
@@ -222,7 +222,7 @@ export const CreateAccount = ({ onBack }: { onBack: () => void }): JSX.Element =
 
         <div className="w-full p-4 bg-[#1e1e1e] rounded-[10px] border border-[#00000033]">
           <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] leading-5 text-center">
-            By creating an account, you agree to our Terms of Service and Privacy Policy.
+            By registering, you acknowledge and agree to our Terms of Service and Privacy Policy.
           </p>
         </div>
       </div>
