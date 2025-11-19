@@ -23,25 +23,25 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   const securitySettings: SecuritySetting[] = [
     {
       icon: <Lock size={20} />,
-      label: "Password",
-      status: "Strong",
+      label: "Password Policy",
+      status: "Compliant",
       statusColor: "text-green-400",
     },
     {
       icon: <Smartphone size={20} />,
-      label: "Biometric Auth",
-      status: "Enabled",
+      label: "Biometric Authentication",
+      status: "Active",
       statusColor: "text-green-400",
     },
     {
       icon: <Clock size={20} />,
-      label: "Session Timeout",
-      status: "30 min",
+      label: "Session Duration",
+      status: "30 minutes",
       statusColor: "text-blue-400",
     },
     {
       icon: <Globe size={20} />,
-      label: "Device",
+      label: "Device Verification",
       status: "Verified",
       statusColor: "text-green-400",
     },
@@ -50,32 +50,32 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   const recentActivity = [
     { 
       time: "2 hours ago", 
-      action: "Successful login", 
-      device: "Chrome on Windows",
-      location: "San Francisco, CA",
+      action: "Authentication Successful", 
+      device: "Chrome Browser - Windows",
+      location: "San Francisco, CA, US",
       status: "success",
       icon: <CheckCircle2 size={16} className="text-green-400" />
     },
     {
       time: "1 day ago",
-      action: "Password changed",
-      device: "Safari on macOS",
-      location: "New York, NY",
+      action: "Password Credentials Updated",
+      device: "Safari Browser - macOS",
+      location: "New York, NY, US",
       status: "success",
       icon: <Key size={16} className="text-blue-400" />
     },
     {
       time: "3 days ago",
-      action: "2FA enabled",
-      device: "Mobile App",
-      location: "Los Angeles, CA",
+      action: "Multi-Factor Authentication Enabled",
+      device: "Mobile Application",
+      location: "Los Angeles, CA, US",
       status: "success",
       icon: <Shield size={16} className="text-purple-400" />
     },
     {
       time: "5 days ago",
-      action: "Failed login attempt",
-      device: "Unknown Device",
+      action: "Authentication Failure Detected",
+      device: "Unrecognized Device",
       location: "Unknown Location",
       status: "failed",
       icon: <AlertCircle size={16} className="text-red-400" />
@@ -85,24 +85,24 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   const trustedDevices = [
     {
       name: "MacBook Pro",
-      device: "Safari on macOS",
-      location: "San Francisco, CA",
-      lastActive: "Active now",
+      device: "Safari Browser - macOS",
+      location: "San Francisco, CA, US",
+      lastActive: "Currently Active",
       isCurrent: true,
       icon: <Monitor size={20} />
     },
     {
       name: "iPhone 14",
-      device: "Mobile App",
-      location: "San Francisco, CA",
+      device: "Mobile Application",
+      location: "San Francisco, CA, US",
       lastActive: "2 hours ago",
       isCurrent: false,
       icon: <Smartphone size={20} />
     },
     {
       name: "Windows PC",
-      device: "Chrome on Windows",
-      location: "New York, NY",
+      device: "Chrome Browser - Windows",
+      location: "New York, NY, US",
       lastActive: "1 day ago",
       isCurrent: false,
       icon: <Monitor size={20} />
@@ -110,8 +110,8 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
   ];
 
   const securityMetrics = [
-    { label: "Login Attempts", value: "24", trend: "+12%", positive: true },
-    { label: "Security Score", value: "95%", trend: "+5%", positive: true },
+    { label: "Authentication Attempts", value: "24", trend: "+12%", positive: true },
+    { label: "Security Compliance Score", value: "95%", trend: "+5%", positive: true },
     { label: "Active Sessions", value: "3", trend: "Stable", positive: true },
   ];
 
@@ -119,24 +119,19 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
     <main className="flex min-h-screen bg-[linear-gradient(135deg,rgba(0,0,0,1)_0%,rgba(50,50,50,1)_99%),linear-gradient(0deg,rgba(30,30,30,1)_0%,rgba(30,30,30,1)_100%)] w-full min-w-[1018px]">
       <div className="w-full max-w-6xl mx-auto px-8 py-12">
         {/* Header Section */}
-        <header className="w-full flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <User size={28} className="text-white" />
-            </div>
-            <div>
-              <h1 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-2xl tracking-[0] leading-8">
-                Welcome back, User
-              </h1>
-              <p className="[font-family:'Roboto',Helvetica] text-sm text-[#6b6b6b]">
-                Last login: 2 hours ago
-              </p>
-            </div>
+        <header className="w-full flex items-center justify-between mb-10 pb-6 border-b border-[#00000033]">
+          <div>
+            <h1 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-2xl tracking-[0] leading-8 mb-1">
+              Account Dashboard
+            </h1>
+            <p className="[font-family:'Roboto',Helvetica] text-sm text-[#6b6b6b]">
+              Last authenticated: 2 hours ago
+            </p>
           </div>
           <Button
             onClick={onSignOut}
             variant="outline"
-            className="h-10 bg-red-500/10 rounded-[10px] border border-solid border-red-500/30 [font-family:'Tinos',Helvetica] font-normal text-red-400 text-sm tracking-[0] leading-5 hover:bg-red-500/20 flex items-center justify-center gap-2"
+            className="h-9 px-4 bg-transparent rounded-[8px] border border-solid border-[#00000033] [font-family:'Roboto',Helvetica] font-normal text-[#dcdcdcba] text-sm tracking-[0] leading-5 hover:bg-[#1e1e1e] hover:border-[#00000066] flex items-center justify-center gap-2"
           >
             <LogOut size={16} />
             Sign Out
@@ -144,24 +139,26 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
         </header>
 
         {/* Security Metrics */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-4 mb-10">
           {securityMetrics.map((metric, idx) => (
-            <Card key={idx} className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                    {metric.label}
+            <Card key={idx} className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033] hover:border-[#00000066] transition-colors">
+              <CardContent className="p-5">
+                <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] mb-3 font-medium uppercase tracking-wider">
+                  {metric.label}
+                </p>
+                <div className="flex items-baseline gap-2">
+                  <p className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-3xl">
+                    {metric.value}
                   </p>
                   {metric.positive && (
-                    <TrendingUp size={14} className="text-green-400" />
+                    <div className="flex items-center gap-1">
+                      <TrendingUp size={12} className="text-green-400" />
+                      <span className="[font-family:'Roboto',Helvetica] text-xs text-green-400 font-medium">
+                        {metric.trend}
+                      </span>
+                    </div>
                   )}
                 </div>
-                <p className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-2xl mb-1">
-                  {metric.value}
-                </p>
-                <p className="[font-family:'Roboto',Helvetica] text-xs text-green-400">
-                  {metric.trend}
-                </p>
               </CardContent>
             </Card>
           ))}
@@ -170,26 +167,25 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
         <div className="grid grid-cols-2 gap-6 mb-8">
           {/* Left Column */}
           <div className="flex flex-col gap-6">
-            {/* Quick Security Status */}
+            {/* Security Overview */}
             <div>
-              <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg mb-4 flex items-center gap-2">
-                <Shield size={20} className="text-[#dcdcdcba]" />
-                Quick Security Status
+              <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-base mb-4">
+                Security Overview
               </h2>
               <div className="grid grid-cols-2 gap-3">
                 {securitySettings.map((setting, idx) => (
                   <Card
                     key={idx}
-                    className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033] cursor-pointer hover:bg-[#252525] transition-colors"
+                    className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033] hover:border-[#00000066] transition-colors"
                   >
-                    <CardContent className="flex flex-col gap-3 p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="text-[#dcdcdcba]">{setting.icon}</div>
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="text-[#6b6b6b]">{setting.icon}</div>
                         <span className={`text-xs font-medium ${setting.statusColor}`}>
                           {setting.status}
                         </span>
                       </div>
-                      <span className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm leading-5">
+                      <span className="[font-family:'Roboto',Helvetica] font-normal text-[#dcdcdcba] text-sm leading-5">
                         {setting.label}
                       </span>
                     </CardContent>
@@ -201,31 +197,30 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
             {/* Trusted Devices */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg flex items-center gap-2">
-                  <Monitor size={20} className="text-[#dcdcdcba]" />
+                <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-base">
                   Trusted Devices
                 </h2>
                 <button
                   onClick={() => setShowAllDevices(!showAllDevices)}
-                  className="[font-family:'Roboto',Helvetica] text-xs text-blue-400 hover:text-blue-300 transition-colors"
+                  className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] hover:text-[#dcdcdcba] transition-colors"
                 >
                   {showAllDevices ? "Show Less" : "View All"}
                 </button>
               </div>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2">
                 {trustedDevices.slice(0, showAllDevices ? trustedDevices.length : 2).map((device, idx) => (
                   <Card
                     key={idx}
-                    className={`bg-[#1e1e1e] rounded-[14px] border border-solid ${
-                      device.isCurrent ? "border-blue-500/50" : "border-[#00000033]"
-                    }`}
+                    className={`bg-[#1e1e1e] rounded-[8px] border border-solid ${
+                      device.isCurrent ? "border-[#00000066]" : "border-[#00000033]"
+                    } hover:border-[#00000066] transition-colors`}
                   >
                     <CardContent className="p-4">
-                      <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center gap-3">
-                          <div className="text-[#dcdcdcba]">{device.icon}</div>
+                          <div className="text-[#6b6b6b]">{device.icon}</div>
                           <div>
-                            <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
+                            <p className="[font-family:'Roboto',Helvetica] font-medium text-[#dcdcdcba] text-sm mb-0.5">
                               {device.name}
                             </p>
                             <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
@@ -234,18 +229,18 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                           </div>
                         </div>
                         {device.isCurrent && (
-                          <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded">
-                            Current
+                          <span className="px-2 py-0.5 bg-[#1e1e1e] border border-[#00000033] text-[#6b6b6b] text-xs rounded font-medium">
+                            Active
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-4 text-xs text-[#6b6b6b]">
-                        <div className="flex items-center gap-1">
-                          <MapPin size={12} />
+                      <div className="flex items-center gap-4 text-xs text-[#6b6b6b] pl-8">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin size={11} />
                           {device.location}
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Clock size={12} />
+                        <div className="flex items-center gap-1.5">
+                          <Clock size={11} />
                           {device.lastActive}
                         </div>
                       </div>
@@ -260,24 +255,23 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
           <div className="flex flex-col gap-6">
             {/* Recent Activity */}
             <div>
-              <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg mb-4 flex items-center gap-2">
-                <Activity size={20} className="text-[#dcdcdcba]" />
+              <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-base mb-4">
                 Recent Activity
               </h2>
-              <div className="flex flex-col gap-3 max-h-96 overflow-y-auto">
+              <div className="flex flex-col gap-2 max-h-96 overflow-y-auto">
                 {recentActivity.map((activity, idx) => (
                   <Card
                     key={idx}
-                    className={`bg-[#1e1e1e] rounded-[14px] border border-solid ${
-                      activity.status === "failed" ? "border-red-500/30" : "border-[#00000033]"
-                    }`}
+                    className={`bg-[#1e1e1e] rounded-[8px] border border-solid ${
+                      activity.status === "failed" ? "border-[#00000066]" : "border-[#00000033]"
+                    } hover:border-[#00000066] transition-colors`}
                   >
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex items-center gap-3">
-                          {activity.icon}
+                          <div className="mt-0.5">{activity.icon}</div>
                           <div>
-                            <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
+                            <p className="[font-family:'Roboto',Helvetica] font-medium text-[#dcdcdcba] text-sm mb-0.5">
                               {activity.action}
                             </p>
                             <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
@@ -289,8 +283,8 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
                           {activity.time}
                         </span>
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-[#6b6b6b]">
-                        <MapPin size={12} />
+                      <div className="flex items-center gap-1.5 text-xs text-[#6b6b6b] pl-8">
+                        <MapPin size={11} />
                         {activity.location}
                       </div>
                     </CardContent>
@@ -301,134 +295,97 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
           </div>
         </div>
 
-        <div className="w-full max-w-[448px] mb-8">
-          <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg mb-4">
-            Recent Activity
-          </h2>
-
-          <div className="flex flex-col gap-3 max-h-64 overflow-y-auto">
-            {recentActivity.map((activity, idx) => (
-              <Card
-                key={idx}
-                className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]"
-              >
-                <CardContent className="flex items-start justify-between p-4">
-                  <div className="flex-1">
-                    <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm mb-1">
-                      {activity.action}
-                    </p>
-                    <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      {activity.device}
-                    </p>
-                  </div>
-                  <span className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] whitespace-nowrap ml-4">
-                    {activity.time}
-                  </span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         {/* Security Settings */}
-        <div className="mb-8">
-          <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-lg mb-4 flex items-center gap-2">
-            <Settings size={20} className="text-[#dcdcdcba]" />
+        <div className="mb-10">
+          <h2 className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-base mb-4">
             Security Settings
           </h2>
-          <div className="grid grid-cols-1 gap-3">
-            <Card className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]">
+          <div className="grid grid-cols-1 gap-2">
+            <Card className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033] hover:border-[#00000066] transition-colors">
               <CardContent className="flex items-center justify-between p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                    <Shield size={20} className="text-blue-400" />
-                  </div>
+                  <Shield size={18} className="text-[#6b6b6b]" />
                   <div>
-                    <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
+                    <p className="[font-family:'Roboto',Helvetica] font-medium text-[#dcdcdcba] text-sm">
                       Two-Factor Authentication
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Extra security layer for your account
+                      Additional authentication factor required
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setTwoFAEnabled(!twoFAEnabled)}
-                  className="text-[#dcdcdcba] hover:text-white transition-colors"
+                  className="text-[#6b6b6b] hover:text-[#dcdcdcba] transition-colors"
                 >
-                  {twoFAEnabled ? <ToggleRight size={32} className="text-green-400" /> : <ToggleLeft size={32} />}
+                  {twoFAEnabled ? <ToggleRight size={28} className="text-green-400" /> : <ToggleLeft size={28} />}
                 </button>
               </CardContent>
             </Card>
 
-            <Card className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]">
+            <Card className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033] hover:border-[#00000066] transition-colors">
               <CardContent className="flex items-center justify-between p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                    <Fingerprint size={20} className="text-purple-400" />
-                  </div>
+                  <Fingerprint size={18} className="text-[#6b6b6b]" />
                   <div>
-                    <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
-                      Biometric Login
+                    <p className="[font-family:'Roboto',Helvetica] font-medium text-[#dcdcdcba] text-sm">
+                      Biometric Authentication
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Fingerprint, Face ID, Voice recognition
+                      Biometric identification methods enabled
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setBiometricEnabled(!biometricEnabled)}
-                  className="text-[#dcdcdcba] hover:text-white transition-colors"
+                  className="text-[#6b6b6b] hover:text-[#dcdcdcba] transition-colors"
                 >
-                  {biometricEnabled ? <ToggleRight size={32} className="text-green-400" /> : <ToggleLeft size={32} />}
+                  {biometricEnabled ? <ToggleRight size={28} className="text-green-400" /> : <ToggleLeft size={28} />}
                 </button>
               </CardContent>
             </Card>
 
-            <Card className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]">
+            <Card className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033] hover:border-[#00000066] transition-colors">
               <CardContent className="flex items-center justify-between p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
-                    <Mail size={20} className="text-green-400" />
-                  </div>
+                  <Mail size={18} className="text-[#6b6b6b]" />
                   <div>
-                    <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
-                      Passwordless Login
+                    <p className="[font-family:'Roboto',Helvetica] font-medium text-[#dcdcdcba] text-sm">
+                      Passwordless Authentication
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Magic link authentication via email
+                      Email-based passwordless authentication
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => setPasswordlessEnabled(!passwordlessEnabled)}
-                  className="text-[#dcdcdcba] hover:text-white transition-colors"
+                  className="text-[#6b6b6b] hover:text-[#dcdcdcba] transition-colors"
                 >
-                  {passwordlessEnabled ? <ToggleRight size={32} className="text-green-400" /> : <ToggleLeft size={32} />}
+                  {passwordlessEnabled ? <ToggleRight size={28} className="text-green-400" /> : <ToggleLeft size={28} />}
                 </button>
               </CardContent>
             </Card>
 
-            <Card className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]">
+            <Card className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033] hover:border-[#00000066] transition-colors">
               <CardContent className="flex items-center justify-between p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                    <QrCode size={20} className="text-orange-400" />
-                  </div>
+                  <QrCode size={18} className="text-[#6b6b6b]" />
                   <div>
-                    <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
-                      QR Code Login
+                    <p className="[font-family:'Roboto',Helvetica] font-medium text-[#dcdcdcba] text-sm">
+                      QR Code Authentication
                     </p>
                     <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                      Quick scan authentication
+                      QR code-based authentication protocol
                     </p>
                   </div>
                 </div>
                 <button
                   onClick={() => {}}
-                  className="text-[#dcdcdcba] hover:text-white transition-colors"
+                  className="text-[#6b6b6b] hover:text-[#dcdcdcba] transition-colors"
                 >
-                  <ToggleRight size={32} className="text-green-400" />
+                  <ToggleRight size={28} className="text-green-400" />
                 </button>
               </CardContent>
             </Card>
@@ -436,58 +393,48 @@ export const Dashboard = ({ onSignOut }: { onSignOut: () => void }): JSX.Element
         </div>
 
         {/* Security Score Card */}
-        <div className="grid grid-cols-2 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-[14px] border border-solid border-blue-500/30">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <TrendingUp size={24} className="text-blue-400" />
-                </div>
-                <div>
-                  <p className="[font-family:'Tinos',Helvetica] font-normal text-blue-400 text-sm">
-                    Security Score
-                  </p>
-                  <p className="[font-family:'Tinos',Helvetica] font-normal text-white text-3xl">
-                    95%
-                  </p>
-                </div>
+        <div className="grid grid-cols-2 gap-4 mb-8">
+          <Card className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033]">
+            <CardContent className="p-5">
+              <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] mb-3 font-medium uppercase tracking-wider">
+                Security Compliance Score
+              </p>
+              <div className="flex items-baseline gap-3 mb-4">
+                <p className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-4xl">
+                  95%
+                </p>
               </div>
-              <div className="w-full h-2 bg-[#1e1e1e] rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" style={{ width: "95%" }} />
+              <div className="w-full h-1.5 bg-[#0a0a0a] rounded-full overflow-hidden mb-3">
+                <div className="h-full bg-[#dcdcdcba] rounded-full" style={{ width: "95%" }} />
               </div>
-              <p className="[font-family:'Roboto',Helvetica] text-xs text-blue-300 mt-3">
-                Your account is well-protected. Keep using strong security practices.
+              <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
+                Meets enterprise security standards
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-[#1e1e1e] rounded-[14px] border border-solid border-[#00000033]">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <Bell size={24} className="text-green-400" />
-                </div>
-                <div>
-                  <p className="[font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm">
-                    Security Alerts
-                  </p>
-                  <p className="[font-family:'Tinos',Helvetica] font-normal text-white text-3xl">
-                    2
-                  </p>
-                </div>
+          <Card className="bg-[#1e1e1e] rounded-[8px] border border-solid border-[#00000033]">
+            <CardContent className="p-5">
+              <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b] mb-3 font-medium uppercase tracking-wider">
+                Security Notifications
+              </p>
+              <div className="flex items-baseline gap-3 mb-4">
+                <p className="[font-family:'Tinos',Helvetica] font-normal text-[#ffffffba] text-4xl">
+                  2
+                </p>
               </div>
               <p className="[font-family:'Roboto',Helvetica] text-xs text-[#6b6b6b]">
-                Recent security notifications and updates
+                Pending notifications requiring review
               </p>
             </CardContent>
           </Card>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col gap-3">
-          <Button className="w-full h-12 bg-white rounded-[14px] [font-family:'Tinos',Helvetica] font-normal text-black text-sm tracking-[0] leading-5 hover:bg-white/90 flex items-center justify-center gap-2">
-            <Settings size={18} />
-            Manage All Security Settings
+        <div className="flex flex-col gap-2">
+          <Button className="w-full h-10 bg-white rounded-[8px] [font-family:'Roboto',Helvetica] font-medium text-black text-sm tracking-[0] leading-5 hover:bg-white/90 flex items-center justify-center gap-2">
+            <Settings size={16} />
+            Configure Security Settings
           </Button>
         </div>
       </div>

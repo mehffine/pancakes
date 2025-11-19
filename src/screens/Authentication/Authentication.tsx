@@ -54,8 +54,7 @@ export const Authentication = ({
           </h1>
 
           <p className="w-full px-8 [font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-base text-center tracking-[0] leading-6">
-            Your gateway to secure, seamless authentication. Login with
-            confidence using multiple security layers.
+            Enterprise-grade authentication platform with multi-factor security protocols.
           </p>
         </header>
 
@@ -84,7 +83,7 @@ export const Authentication = ({
             onClick={onCreateAccount}
             className="w-full h-12 bg-white rounded-[14px] [font-family:'Tinos',Helvetica] font-normal text-black text-sm tracking-[0] leading-5 hover:bg-white/90"
           >
-            Create Account
+            Register Account
           </Button>
 
           <Button
@@ -92,7 +91,7 @@ export const Authentication = ({
             variant="outline"
             className="w-full h-12 bg-[#4747470a] rounded-[10px] border border-solid border-[#b7b7b752] opacity-[0.67] [font-family:'Tinos',Helvetica] font-normal text-[#dcdcdcba] text-sm tracking-[0] leading-5 hover:bg-[#4747471a]"
           >
-            Sign In
+            Authenticate
           </Button>
         </section>
 
